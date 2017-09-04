@@ -1,0 +1,60 @@
+﻿@model IBuyStuff.Application.ViewModels.ViewModelBase
+
+<div class="col-xs-12">
+    <div class="col-xs-4">
+        <div class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="@Url.Content("~/content/images/main/esposito.png")" alt="Dino Esposito">
+            </a>
+            <div class="media-body">
+                <h5 class="media-heading ibuy-footer-title">Dino Esposito</h5>
+                <a href="@Model.Dino.Twitter" target="_blank"><img src="@Url.Content("~/content/images/main/twitter.png")" /></a>
+                <a href="@Model.Dino.Wordpress" target="_blank"><img src="@Url.Content("~/content/images/main/wordpress.png")" /></a>
+                <a href="@Model.Dino.Google" target="_blank"><img src="@Url.Content("~/content/images/main/google.png")" /></a>
+                <a href="@Model.Dino.LinkedIn" target="_blank"><img src="@Url.Content("~/content/images/main/linkedin.png")" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="@Url.Content("~/content/images/main/saltarello.png")" alt="Andrea Saltarello">
+            </a>
+            <div class="media-body">
+                <h5 class="media-heading ibuy-footer-title">Andrea Saltarello</h5>
+                <a href="@Model.Andrea.Twitter" target="_blank"><img src="@Url.Content("~/content/images/main/twitter.png")" /></a>
+                <a href="@Model.Andrea.Facebook" target="_blank"><img src="@Url.Content("~/content/images/main/facebook.png")" /></a>
+                <a href="@Model.Andrea.Google" target="_blank"><img src="@Url.Content("~/content/images/main/google.png")" /></a>
+                <a href="@Model.Andrea.LinkedIn" target="_blank"><img src="@Url.Content("~/content/images/main/linkedin.png")" /></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        <div class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="@Url.Content("~/content/images/main/ms.png")" alt="...">
+            </a>
+            <div class="media-body">
+                <h5 class="media-heading ibuy-footer-title">The <b>NAA4E</b> book</h5>
+                <ul>
+                    <li>
+                        <a href="http://amzn.to/1jOf3tt" target="_blank">
+                            Microsoft .NET: Architecting Applications for the Enterprise
+                        </a>, Microsoft Press, 2014.
+                    </li>
+                    <li>
+                        Like and follow us on
+                        <a href="http://facebook.com/naa4e" target="_blank">Facebook</a>.
+                    </li>
+                    <li>
+                        Official hashtag
+                        <a href="http://twitter.com/search?q=naa4e" target="_blank"><span class="badge">NAA4E</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ibuy-footer-refnote">
+    <span>Companion example for <b>Chapter 9</b>: <span id="chapter">Implementing Domain Model</span>.</span>
+</div>

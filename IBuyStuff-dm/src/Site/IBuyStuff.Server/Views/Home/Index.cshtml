@@ -1,0 +1,18 @@
+﻿@model IBuyStuff.Application.ViewModels.Home.IndexViewModel
+
+<div style="padding-top: 30px">
+    <div class="col-xs-6">
+        @Html.Partial("desktop_p_carousel", Model)
+    </div>
+    <div class="col-xs-6">
+        <div>@Html.Partial("desktop_p_menu_standard")</div>
+        @if (Request.IsAuthenticated)
+        {
+            <div>@Html.Partial("desktop_p_menu_logged")</div>
+        }
+        <div style="margin-top: 50px">
+            @Html.Partial("desktop_p_newsletter", Model)
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

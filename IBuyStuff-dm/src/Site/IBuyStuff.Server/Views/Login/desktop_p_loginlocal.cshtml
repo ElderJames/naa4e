@@ -1,0 +1,43 @@
+﻿@model IBuyStuff.Application.InputModels.Login.LoginInputModel
+
+<form method="POST" action="@Url.Content("~/login/signin")">
+    <fieldset style="margin-top: 50px">
+        <legend>If you're a registered customer, enter your credentials.</legend>
+        <div class="col-xs-7">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input id="username" name="username" type="text" class="form-control" maxlength="20" placeholder="Your display name">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input id="password" name="password" type="password" class="form-control" maxlength="20" placeholder="Your password">
+            </div>
+
+            <div class="input-group">
+                <div style="padding-top: 10px; padding-left: 200px">
+                    <input type="submit" class="btn btn-lg btn-primary" value="Sign In" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-offset-5">
+            <div class="input-group">
+                <div class="col-xs-offset-1 col-xs-11">
+                    <div class=" checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        <span>Remember Me</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <span class="error" style="font-size:1.2em">@Html.ValidationMessage("failed")</span>
+        
+    </fieldset>
+</form>
+

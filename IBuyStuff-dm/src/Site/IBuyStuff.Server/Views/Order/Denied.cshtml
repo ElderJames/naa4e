@@ -1,0 +1,13 @@
+﻿@model IBuyStuff.Application.ViewModels.Orders.OrderProcessingViewModel
+
+<div class="filler">
+    <h1>We've found issues with your order and just sent you an email with more details.</h1>
+    <ul>
+        @foreach (var m in Model.Messages)
+        {
+            <li><h4>@m</h4></li>
+        }
+    </ul>
+    
+    <a class="btn btn-primary btn-lg" style="margin-top: 30px" href="@Url.Content("~/")">Continue shopping...</a>        
+</div>

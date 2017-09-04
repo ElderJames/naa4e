@@ -1,0 +1,16 @@
+﻿@using IBuyStuff.Server.Common.Identity
+@if (Request.IsAuthenticated)
+{
+    var identity = User.Identity.AsClaimsIdentity();
+   
+    <div class="media">
+        <img class="pull-left img-responsive img-rounded media-object"
+             src="@Url.Content(identity.Avatar())" width="64" alt="" />      
+        <div class="media-body">
+            <h4 class="media-heading">Welcome, <span id="username">@identity.Name</span></h4>
+            <a href="@Url.Content("~/logout")" class="btn btn-warning" title="Log out">
+                <span class="glyphicon glyphicon-off"></span>
+            </a>         
+        </div>
+    </div>
+}

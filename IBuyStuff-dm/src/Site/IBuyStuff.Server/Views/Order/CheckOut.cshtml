@@ -1,0 +1,102 @@
+﻿@using System.Globalization
+@using Expoware.Portobello.Extensions
+@using IBuyStuff.Domain.Shared
+@model IBuyStuff.Application.ViewModels.Orders.ShoppingCartViewModel
+
+@{
+    var creditCards = new CreditCardType().GetItems<int>();
+    var months = new List<EnumItem<int>>();
+    var thisMonth = DateTime.Today.AddMonths(3).Month;
+    for (var i=0; i< 12; i++)
+    {
+        var m = CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[i];
+        months.Add(new EnumItem<int> {Description = m, Value = i + 1});
+    }
+    var line1 = String.Format("{0} {1}", Model.OrderRequest.Buyer.Address.Number, Model.OrderRequest.Buyer.Address.Street);
+    var line2 = String.Format("{0} {1}", Model.OrderRequest.Buyer.Address.Zip, Model.OrderRequest.Buyer.Address.City);
+    var line3 = String.Format("{0}", Model.OrderRequest.Buyer.Address.Country);
+}
+
+<h2>Checkout</h2>
+<div class="filler col-xs-12">
+    <div class="col-xs-4">
+        @Html.Partial("desktop_p_cartitems", Model)
+    </div>
+
+    <div class="col-xs-8">
+        <span id="checkout-error-message" class="error">&nbsp;</span>
+        <form method="post" action="@Url.Content("~/order/checkout")">
+            <div class="col-xs-12">
+                <fieldset>
+                    <legend>
+                        Shipping to <span class="text-warning">@Model.OrderRequest.Buyer</span>
+
+                        <button id="button-buy1" type="submit" class="pull-right btn btn-primary btn-lg">Buy</button>
+                    </legend>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-home"></span>
+                        </span>
+                        <input id="address" name="address" type="text" class="form-control" placeholder="Shipping address"
+                               value="@line1">
+                        <div class="row">
+                            <div class="col-xs-8 input-group-lg">
+                                <input id="city" name="city" type="text" class="form-control" placeholder="Zip, City, State"
+                                       value="@line2" />
+                            </div>
+                            <div class="col-xs-4 input-group-lg">
+                                <input id="country" name="country" type="text" class="form-control" placeholder="Country"
+                                       value="@line3">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>
+                        Payment
+                        <button id="button-buy2" type="submit" class="pull-right btn btn-primary btn-lg">Buy</button>
+                    </legend>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-credit-card"></span>
+                        </span>
+                        <div class="row">
+                            <div class="col-xs-4 input-group-lg">
+                                <select id="cardType" name="cardType" class="form-control">
+                                    @foreach (var c in creditCards)
+                                    {
+                                        var selected = (c.Value == ((int)Model.OrderRequest.Buyer.Payment.Type) ? "selected" : "");
+                                        <option value="@c.Value" selected="@selected">@c.Description</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-xs-4 input-group-lg">
+                                @Html.DropDownList("month", new SelectList(months, "Value", "Description", thisMonth), new { @class = "form-control input-lg" })
+                            </div>
+                            <div class="col-xs-4 input-group-lg">
+                                @Html.DropDownList("year",
+                                    new SelectList(new[] { 2014, 2015, 2016, 2017, 2018 }),
+                                    new { @class = "form-control input-lg" })
+                            </div>
+                        </div>
+
+                        <input id="cardNumber" name="cardNumber" type="number" maxlength="16" class="form-control" placeholder="Card number"
+                               value="@Model.OrderRequest.Buyer.Payment.Number">
+                    </div>
+                </fieldset>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#button-buy1").click(function () {
+            return iBuyStuff_validateCheckout();
+        });
+        $("#button-buy2").click(function () {
+            return iBuyStuff_validateCheckout();
+        });
+    });
+</script>

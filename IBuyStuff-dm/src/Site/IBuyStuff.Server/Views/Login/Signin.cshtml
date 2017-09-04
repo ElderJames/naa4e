@@ -1,0 +1,12 @@
+﻿@model IBuyStuff.Application.InputModels.Login.LoginInputModel 
+
+<h2>Let us give you first-class treatment: <span id="justlogin">just log in</span>!</h2>
+
+<div class="row">
+    <div class="col-xs-6">
+        @Html.Partial("desktop_p_loginlocal", Model)
+    </div>
+    <div class="col-xs-offset-1 col-xs-5">
+        @Html.Partial("desktop_p_loginsocial")
+    </div>
+</div>

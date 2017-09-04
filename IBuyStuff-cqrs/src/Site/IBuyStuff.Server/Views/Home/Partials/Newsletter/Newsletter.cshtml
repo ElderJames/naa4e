@@ -1,0 +1,16 @@
+﻿@model IBuyStuff.Application.ViewModels.Home.IndexViewModel
+
+<fieldset>
+    <legend>Newsletter <span class="badge">@(Model.SubscriberCount.ToString()+"K")</span></legend>
+    <form action="@Url.Content("~/home/subscribe")" method="post">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-envelope"></span>
+            </span>
+            <input id="input-email" name="email" type="text" class="form-control" placeholder="Email">
+            <span class="input-group-btn">
+                <button id="button-add-me" type="submit" class="btn btn-primary">Add me!</button>
+            </span>
+        </div>
+    </form>
+</fieldset>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEE3528B-DC25-4067-A903-F26EDAD64F8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IBuyStuff.Domain.Services</RootNamespace>
+    <AssemblyName>IBuyStuff.Domain.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Events\Bus.cs" />
+    <Compile Include="DTO\LowStockReport.cs" />
+    <Compile Include="DTO\AdHocCatalog.cs" />
+    <Compile Include="Events\CustomerReachedGoldMemberStatus.cs" />
+    <Compile Include="Events\GoldStatusHandler.cs" />
+    <Compile Include="Events\IDomainEvent.cs" />
+    <Compile Include="Events\IHandler.cs" />
+    <Compile Include="ICatalogService.cs" />
+    <Compile Include="Impl\CatalogService.cs" />
+    <Compile Include="Impl\ShipmentService.cs" />
+    <Compile Include="Impl\OrderRequestService.cs" />
+    <Compile Include="ICustomerCareService.cs" />
+    <Compile Include="IShipmentService.cs" />
+    <Compile Include="IOrderRequestService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\IBuyStuff.Persistence\IBuyStuff.Persistence.csproj">
+      <Project>{EED12385-ECBD-4C32-B941-F0444F5FA272}</Project>
+      <Name>IBuyStuff.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IBuyStuff.Domain\IBuyStuff.Domain.csproj">
+      <Project>{aeb0bb1b-1d7e-46d8-84cc-35fcd9af32a5}</Project>
+      <Name>IBuyStuff.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

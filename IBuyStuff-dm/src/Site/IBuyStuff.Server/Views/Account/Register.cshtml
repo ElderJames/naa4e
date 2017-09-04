@@ -1,0 +1,71 @@
+﻿@model IBuyStuff.Application.InputModels.Login.RegisterInputModel
+
+<h2>Happy to have you on board!</h2>
+<form method="POST" action="@Url.Content("~/account/register")">
+    <fieldset style="margin-top: 50px">
+        <legend>Tell us more about you.</legend>
+        <div class="col-xs-7">
+            
+            <div class="input-group input-group-lg pull-right" style="padding-left:5px">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-warning active">
+                        <input type="radio" name="gender" value="Male" checked>
+                        Male
+                    </label>
+                    <label class="btn btn-warning">
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+                </div>
+            </div>
+                        
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input id="username" name="username" type="text" class="form-control" maxlength="20" placeholder="Your display name">
+            </div>
+
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-lock"></span>
+                </span>
+                <input id="password" name="password" type="password" class="form-control" maxlength="20" placeholder="Your password">
+            </div>
+            
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </span>
+                <input id="password" name="email" type="email" class="form-control" placeholder="Email address">
+            </div>
+            
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input id="firstname" name="firstname" type="text" class="form-control" placeholder="First name">
+            </div>
+            
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-user"></span>
+                </span>
+                <input id="lastname" name="lastname" type="text" class="form-control" placeholder="Family name">
+            </div>
+
+            <div class="input-group">
+                <div style="padding-top: 10px;">
+                    <div class="col-xs-9">
+                        <span class="error" style="font-size:1.2em;">@Html.ValidationMessage("failed")</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <input type="submit" class="btn btn-lg btn-primary" value="Register" />
+                    </div>
+                </div>
+            </div>
+        
+
+    </fieldset>
+</form>
+

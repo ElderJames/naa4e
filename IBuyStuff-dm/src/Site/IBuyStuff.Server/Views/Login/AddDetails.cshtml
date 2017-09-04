@@ -1,0 +1,48 @@
+﻿@model IBuyStuff.Application.ViewModels.Login.AddDetailsViewModel
+
+<h2>For our records, we also need your email address and full name.</h2>
+
+<div class="col-xs-6 ibuy-add-details">
+    @using (Html.BeginForm())
+    {
+        <input type="hidden" name="username" value="@Model.UserName" />
+        <input type="hidden" name="returnurl" value="@Model.ReturnUrl" />
+
+        <fieldset>
+            <legend><span id="username">@Model.UserName</span>, add more details about you</legend>
+
+            <div class="input-group input-group-lg pull-right">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-warning active">
+                        <input type="radio" name="gender" value="Male" checked>
+                        Male
+                    </label>
+                    <label class="btn btn-warning">
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </span>
+                <input name="firstname" type="text" class="form-control" placeholder="First name" value="@Model.FirstName">
+                <input name="lastname" type="text" class="form-control" placeholder="Last name" value="@Model.LastName">
+            </div>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </span>
+                <input name="email" type="text" class="form-control" placeholder="Email" value="@Model.Email">
+            </div>
+            <button type="submit" 
+                    class="btn btn-lg btn-primary pull-right" 
+                    style="margin-top:20px">Add details</button>
+        </fieldset>
+    }
+</div>
+<div class="col-xs-2">
+    <img class="img-responsive img-circle" src="@Model.Avatar" alt="" />
+</div>

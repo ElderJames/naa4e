@@ -1,0 +1,55 @@
+﻿@model IBuyStuff.Application.ViewModels.Home.IndexViewModel
+
+@{
+    var featuredCount = Model.Featured.Count();
+    var isFirstProduct = true;
+}
+
+<div class="ibuy-carousel">
+    <div id="carousel-featured-products" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            @for(var i=0; i<featuredCount; i++)
+            {
+                var css = (i == 0 ? "class=\"active\"" : "");
+                <li data-target="#carousel-featured-products" data-slide-to="@i" @css></li>
+            }
+        </ol>
+        <div class="carousel-inner ibuy-carousel-inner">
+            @foreach (var product in Model.Featured)
+            {
+                var productPhoto = String.Format("~/Content/images/Products/{0}.png", product.Id);
+                var active = isFirstProduct ? "active" : "";
+                isFirstProduct = false;
+                
+                <div class="item @active">
+                <div class="inner-item">
+                    <div class="ibuy-carousel-caption">
+                        <h3>
+                            @product.Description
+                            <span class="pull-right">
+                                <a href="#" class="btn btn-xs btn-warning" style="margin-right: 20px;">
+                                    <span class="glyphicon glyphicon-shopping-cart" style="font-size:4em;"></span>
+                                </a>
+                            </span>
+                        </h3>
+                        <p>
+                            <span id="unitprice">@String.Format("{0} only!", product.UnitPrice)</span>
+                            &nbsp;&nbsp;&mdash;&nbsp;&nbsp;
+                            <span id="itemsleft">@String.Format("{0} items left", product.GetStockForDisplay())</span>
+                        </p>
+                    </div>
+                    <img src="@Url.Content(productPhoto)" alt="" />
+                </div>
+            </div> 
+            }
+        </div>
+
+        <a class="left carousel-control" href="#carousel-featured-products" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-featured-products" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div> 
+

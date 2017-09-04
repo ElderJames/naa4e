@@ -1,0 +1,33 @@
+﻿<h2>So you want to review an order you made. <span class="success">Great!</span></h2>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#button-go-get-it").click(function () {
+            return iBuyStuff_checkOrderId();
+        });
+        $("#input-order-id").focus(function () {
+            iBuyStuff_clearErrors();
+        });
+    });
+</script>
+
+<div class="filler col-xs-6">
+    <form action="@Url.Content("~/order/last")" method="post">
+        <button id="button-last-order" type="submit" class="btn btn-primary">Last order I made</button>
+    </form>
+    <fieldset>
+        <legend>Mind tell us the ID?</legend>
+        <form action="@Url.Content("~/order/search")" method="post">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+                <input id="input-order-id" name="id" type="text" class="form-control" maxlength="10" placeholder="Order ID (should be up to 10 digits)">
+                <span class="input-group-btn">
+                    <button id="button-go-get-it" type="submit" class="btn btn-primary">Go get it!</button>
+                </span>
+            </div>
+            <span class="error"></span>
+        </form>
+    </fieldset>
+</div>

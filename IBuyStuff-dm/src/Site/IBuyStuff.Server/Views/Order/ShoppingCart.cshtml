@@ -1,0 +1,39 @@
+﻿@model IBuyStuff.Application.ViewModels.Orders.ShoppingCartViewModel
+
+<h2>Place new order</h2>
+
+<div class="col-xs-3">
+    @Html.Partial("desktop_p_cartitems", Model)
+</div>
+
+<div class="col-xs-9">
+    <div class="row col-xs-12">
+        <form method="post" action="@Url.Content("~/order/addto")">
+            <input name="quantity" id="quantity" type="hidden" value="1" />
+            <input name="productId" id="productId" type="hidden" value="0" />
+            <ul class="nav nav-pills">
+                @foreach (var p in Model.Products)
+                {
+                    var productPhoto = String.Format("~/Content/images/Products/{0}.png", p.Id);
+                    <li class="ibuy-order-item-sep">
+                        <a href="#" onclick="addToCart(@p.Id)" data-toggle="pill" class="text-center">
+                            <span>@p.Description</span>
+                            <img class="ibuy-thumbnail media-object" src="@Url.Content(productPhoto)" alt="...">
+                            <span class="ibuy-product-price">@p.UnitPrice</span>
+                        </a>
+                    </li>
+                }
+            </ul>
+            <button type="submit" style="display:none" id="buttonAddToCart"></button>
+        </form>
+    </div>
+</div>
+    
+
+
+<script type="text/javascript">
+    function addToCart(productId) {
+        $("#productId").val(productId);
+        $("#buttonAddToCart").click();
+    }
+</script>

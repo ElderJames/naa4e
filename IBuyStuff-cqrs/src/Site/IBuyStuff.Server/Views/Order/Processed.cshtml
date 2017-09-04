@@ -1,0 +1,33 @@
+﻿@model IBuyStuff.Application.ViewModels.Orders.OrderProcessedViewModel
+
+<div class="filler">
+    <h1>Congratulations!</h1>
+    <h3 class="text-muted">Your order has been processed. Stay tuned, you'll hear from us very soon!</h3>
+    
+    <div class="col-xs-5">
+        <fieldset>
+            <legend>Summary</legend>
+            <table>
+                <tr>
+                    <td class="table-label">Order ID</td>
+                    <td class="table-value">@Model.OrderId</td>
+                </tr>
+                <tr>
+                    <td class="table-label">Shipping</td>
+                    <td class="table-value">
+                        @Model.ShippingDetails.ExpectedShipDate.ToString("ddd, dd MMM yyyy")
+                        <span style="margin-left: 40px">Nr. </span>
+                        <span class="badge">@Model.ShippingDetails.TrackingId</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table-label">Payment</td>
+                    <td class="table-value">@Model.PaymentDetails.TransactionId</td>
+                </tr>
+            </table>
+        </fieldset>
+    </div>
+    <div class="col-xs-2" style="margin-top:10%;">
+        <a class="btn btn-primary btn-lg" href="@Url.Content("~/")">Continue shopping...</a>        
+    </div>
+</div>

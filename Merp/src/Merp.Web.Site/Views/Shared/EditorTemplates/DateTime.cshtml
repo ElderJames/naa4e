@@ -1,0 +1,18 @@
+﻿@model DateTime?
+@if(System.Web.HttpContext.Current.Request.Browser.Browser == "Chrome")
+{
+    @Html.TextBoxFor(m => m, new { type = "date", value = Model, @class = "form-control" })
+}
+else if (System.Web.HttpContext.Current.Request.Browser.Browser.Contains("Edge"))
+{
+    @Html.TextBoxFor(m => m, new { type = "date", value = Model, @class = "form-control" })
+}
+else
+{
+@Html.TextBox("", Model.HasValue ? Model.Value.ToString("dd/MM/yyyy") : "", new { @class = "date form-control" })
+<script type="text/javascript">
+    $(function () {
+        $("#@ViewData.TemplateInfo.GetFullHtmlFieldId(string.Empty)").datepicker({ dateFormat: "dd/mm/yy" });
+    });
+</script>
+}

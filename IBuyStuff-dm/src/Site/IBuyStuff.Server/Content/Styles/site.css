@@ -1,0 +1,197 @@
+﻿body {
+    padding-top: 100px;
+    background: #222;
+    color: #aab;
+}
+legend {
+    color: #999;
+    padding-top: 30px;
+}
+.dark {
+    color: #999;
+}
+.error {
+    color: #ee6000;
+}
+.success {
+    color: #3cb371;
+}
+.filler {
+    min-height: 500px;
+}
+
+.ibuy-orderid1 {
+    margin-top: 20px;   
+    margin-bottom: 60px;
+}
+
+/* HEADER */
+.ibuy-welcome {
+    color: #aab;
+    margin-top: 10px;
+}
+.ibuy-welcome #username{
+    color: #bdb76b;
+}
+.ibuy-facebook {
+    padding: 5px;
+}
+
+/* FOOTER */
+footer {
+    padding-top: 10px;
+    border-top: solid 6px #bbb;
+    color: #808080;
+    font-size: 0.8em;
+    background: #333;
+    padding-bottom: 15px;
+}
+.ibuy-footer li {
+    list-style: square;
+}
+.ibuy-footer-refnote {
+    margin-top: 10px;
+    text-align:center;
+    font-size: 1.2em;
+    color: #daa520;
+}
+.ibuy-footer-refnote #chapter {
+    color: #dad580;
+}
+.ibuy-footer-title {
+    color: #ccc;
+}
+
+/* SEARCH ORDER */
+.ibuy-order-id {
+    color: #bdb76b;
+    font-size: 1.2em;
+}
+#order-id-error-message {
+    color: #f00;
+    padding: 4px;
+    font-size: 1em;
+}
+
+/* CAROUSEL */
+.ibuy-carousel {
+    margin-top: 40px;
+    width: 500px;
+    border: solid 4px #777;
+    background-color: #444;
+}
+.inner-item {
+    text-align: center;
+    margin: 0;
+}
+.inner-item img {
+    margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.carousel-control.left, .carousel-control.right {
+    background-image: none;
+    color: #aaa;
+}
+.ibuy-carousel-inner {
+    background-color: #444;
+    padding: 0px;
+    margin: 0px;
+}
+.ibuy-carousel-caption {
+    background-color: #222;
+    text-align: left;
+    opacity: 0.5;
+    padding: 2px;
+    padding-left: 20px;
+}
+.ibuy-carousel-caption h3 {
+    color: #ffe4b5;
+    font-weight: bold;
+}
+.ibuy-carousel-caption #unitprice {
+    color: #cff;
+}
+
+/* SOCIAL WIDGETS */
+.ibuy-social-widgets {
+    background: #616162;
+    color: #aaa;
+    border-top: solid 6px #ddd;
+    padding-bottom: 30px;
+}
+
+/* TECHNOLOGY */
+.ibuy-technology {
+    margin-top: 60px;
+    border-top: solid 6px #ddd;
+    background: #888;
+    color: #444444;
+    padding-bottom: 30px;
+}
+
+/* MISC */
+#justlogin {
+    color: #ffe4b5;
+}
+
+/* ADD DETAILS */
+.ibuy-add-details {
+    margin-top: 40px;
+}
+.ibuy-add-details #username {
+    color: #ffe4b5;
+}
+
+/* NEW ORDER */
+.ibuy-thumbnail {
+    width: 110px;
+    margin: 7px;
+    padding: 3px;
+    border-bottom: dashed 1px #555;
+}
+.ibuy-product-price {
+    font-size: 0.8em;
+    color: #888;   
+}
+.ibuy-order-item-sep {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom: solid 4px #ccc;
+}
+.ibuy-cart-order {
+    margin-top: 30px;
+    width: 100%;
+}
+.ibuy-cart-quantity {
+    width: 10%;
+    color: #888;
+}
+.ibuy-cart-price {
+    width: 20%;
+    text-align: right;
+}
+.ibuy-cart-delete {
+    width: 10%;
+    text-align: right;
+}
+.ibuy-cart-description {
+    width: 60%;
+}
+.ibuy-cart-caption {
+    font-size: 1.2em;
+    padding: 4px;
+    font-weight: bold;
+    background-color: #555;
+    color: #bbb;
+    text-align: center;
+}
+/*  SUMMARY  */
+.table-label {
+    font-weight: bold;
+    padding: 10px;
+}
+.table-value {
+    color: #dad580;
+    padding: 10px;
+}

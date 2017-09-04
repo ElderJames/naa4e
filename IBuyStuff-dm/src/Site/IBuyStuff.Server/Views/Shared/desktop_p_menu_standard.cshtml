@@ -1,0 +1,12 @@
+﻿<h1>What are you up to NOW?</h1>
+@if (!Request.IsAuthenticated)
+{
+    <div style="margin-top: 20px">
+        <div class="list-group">
+            <a href="@Url.Content("~/login")" class="list-group-item">
+                <h3 class="list-group-item-heading">Start here!</h3>
+                <p class="list-group-item-text">Register, log in and start using the site. (Try <b>naa4e</b>; no password.)</p>
+            </a>
+        </div>
+    </div>
+}

@@ -1,0 +1,44 @@
+﻿@model IBuyStuff.Application.ViewModels.Orders.OrderFoundViewModel
+
+<div class="filler">
+    @if (Model.Id <= 0)
+    {
+        <h2><span class="error">Oh snap!</span> It seems we missed it. <small><a href="@Url.Content("~/orders")">Back to orders?</a></small></h2>
+
+    }
+    else
+    {
+        <h2><span class="success">Good news!</span> We've found order: <span class="ibuy-order-id">@Model.Id</span>.</h2>
+    }
+    
+    <br /><br />
+    <table class="table">
+        <tr>
+            <td class="table-label">State</td>
+            <td>@Model.State</td>
+        </tr>
+        <tr>
+            <td class="table-label">Date</td>
+            <td>@Model.OrderDate.ToString("ddd, dd-MM-yyyy")</td>
+        </tr>
+        <tr>
+            <td class="table-label">Total</td>
+            <td>@Model.Total</td>
+        </tr>
+        <tr>
+            <td class="table-label">Details</td>
+            <td>
+                <table>
+                    @foreach (var item in Model.Details)
+                    {
+                        <tr>
+                            <td>@item.Quantity</td>
+                            <td>&nbsp;</td>
+                            <td>@item.Product.Description</td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

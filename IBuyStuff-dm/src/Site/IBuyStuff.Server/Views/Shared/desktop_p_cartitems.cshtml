@@ -1,0 +1,55 @@
+﻿@model  IBuyStuff.Application.ViewModels.Orders.ShoppingCartViewModel
+
+@{ var index = 0;}
+
+<div id="shoppingSidebar">
+    @if (Model.OrderRequest.Items.Count == 0)
+    {
+        <span class="text-muted">Your shopping cart is currently empty.</span>
+    }
+    else
+    {
+        <form method="post" action="@Url.Content("~/order/remove")">
+            <input type="hidden" id="itemIndex" name="itemIndex" />
+            <table class="table table-condensed ibuy-cart-order">
+                <tr>
+                    <td class="ibuy-cart-caption" colspan="4">@Model.OrderRequest.GetTotal()
+                    @if (Model.EnableEditOnShoppingCart)
+                    {
+                        <a href="@Url.Content("~/order/checkout")" class="pull-right btn btn-xs btn-primary">
+                            <span>Checkout</span>
+                        </a>
+                    }
+                    </td>
+                </tr>
+                @foreach (var item in Model.OrderRequest.Items)
+                {
+                    var price = item.Quantity * item.Product.UnitPrice;
+                    <tr>
+                        <td class="ibuy-cart-quantity">@item.Quantity</td>
+                        <td class="ibuy-cart-description">@item.Product.Description</td>
+                        <td class="ibuy-cart-price">@price</td>
+                        <td>
+                            @if (Model.EnableEditOnShoppingCart)
+                            {
+                                <button class="btn btn-xs btn-default" onclick="removeFromCart(@(index++))">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+            <button type="submit" style="display:none" id="buttonRemoveFromCart"></button>
+        </form>
+    }
+
+</div>
+
+<script type="text/javascript">
+    function removeFromCart(index) {
+        $("#itemIndex").val(index);
+        $("#buttonRemoveFromCart").click();
+    }
+</script>
+
